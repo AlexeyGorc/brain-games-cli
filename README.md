@@ -1,5 +1,5 @@
-### Hexlet tests and linter status:
-[![Actions Status](https://github.com/AlexeyGorc/php-project-45/workflows/hexlet-check/badge.svg)](https://github.com/AlexeyGorc/php-project-45/actions)
+# Brain Games CLI
+
 [![Maintainability](https://api.codeclimate.com/v1/badges/db5dfcf28c8075e46df3/maintainability)](https://codeclimate.com/github/AlexeyGorc/php-project-45/maintainability)
 
 <h2>Description:</h2>
@@ -16,7 +16,7 @@ Brain Games is a set of five console games based on popular mobile brain trainin
 
 <h2>Requirements:</h2>
 <ul>
-    <li>Linux/MacOS</li>
+    <li>Linux/MacOS/Win</li>
     <li>PHP version 8+</li>
     <li>Composer</li>
     <li>Make</li>
@@ -25,11 +25,11 @@ Brain Games is a set of five console games based on popular mobile brain trainin
 <h2>Installation:</h2>
 
 ````
-git clone git@github.com:AlexeyGorc/php-project-45.git
+git clone https://github.com/AlexeyGorc/brain-games-cli.git
 ````
 
 ````
-cd php-project-45
+cd brain-games-cli
 ````
 
 ````

@@ -1,7 +1,9 @@
 {
-    "name": "hexlet/code",
-    "description": "Brain games",
+    "name": "zorc/brain-games-cli",
+    "type": "project",
+    "description": "Brain games in your CLI",
     "license": "MIT",
+    "homepage": "https://github.com/AlexeyGorc/brain-games-cli",
     "bin": [
         "bin/brain-games",
         "bin/brain-even",
@@ -23,11 +25,13 @@
     },
     "authors": [
         {
-            "name": "AlexeyGoncharenko"
+            "name": "Alexey Goncharenko",
+            "email": "zomorc@gmail.com"
         }
     ],
     "require": {
-        "wp-cli/php-cli-tools": "^0.11.18"
+        "php": "^8.0",
+        "wp-cli/php-cli-tools": "^v0.13.2"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "*",
