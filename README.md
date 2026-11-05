@@ -1,6 +1,6 @@
 # Brain Games CLI
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/db5dfcf28c8075e46df3/maintainability)](https://codeclimate.com/github/AlexeyGorc/php-project-45/maintainability)
+[![Maintainability](https://qlty.sh/gh/AlexeyGorc/projects/brain-games-cli/maintainability.svg)](https://qlty.sh/gh/AlexeyGorc/projects/brain-games-cli)
 
 <h2>Description:</h2>
 Brain Games is a set of five console games based on popular mobile brain training apps. Each game asks questions that need to be answered correctly. After three correct answers, the game is considered to be completed. Wrong answers end the game and offer to play again.
@@ -49,24 +49,3 @@ make brain-progression
 
 make brain-prime
 ````
-
-<h2>Examples:</h2>
-<b>Brain Even</b>
-
-[![asciicast](https://asciinema.org/a/Jm5YeF6BIk1BRoIITZO2cn1qg.svg)](https://asciinema.org/a/Jm5YeF6BIk1BRoIITZO2cn1qg)
-
-<b>Brain Calc<b>
-
-[![asciicast](https://asciinema.org/a/ElChmpl6Xsv1TxaSBYqls85F4.svg)](https://asciinema.org/a/ElChmpl6Xsv1TxaSBYqls85F4)
-
-<b>Brain GCD</b>
-
-[![asciicast](https://asciinema.org/a/e8lBzuapxQtXo9Zqjy8wssP5X.svg)](https://asciinema.org/a/e8lBzuapxQtXo9Zqjy8wssP5X)
-
-<b>Brain Progression</b>
-
-[![asciicast](https://asciinema.org/a/TlsijiL6dOyKsY9Uw5xmNASwh.svg)](https://asciinema.org/a/TlsijiL6dOyKsY9Uw5xmNASwh)
-
-<b>Brain Prime</b>
-
-[![asciicast](https://asciinema.org/a/TQaKnOE9IOLAp0AVmHAGHVLmh.svg)](https://asciinema.org/a/TQaKnOE9IOLAp0AVmHAGHVLmh)
