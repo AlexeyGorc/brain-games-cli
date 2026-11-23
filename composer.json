@@ -1,18 +1,20 @@
 {
     "name": "zorc/brain-games-cli",
     "type": "project",
-    "description": "Brain games in your CLI",
+    "description": "Five brain-training mini games for the terminal",
+    "keywords": ["cli", "game", "php"],
     "license": "MIT",
     "homepage": "https://github.com/AlexeyGorc/brain-games-cli",
-    "bin": [
-        "bin/brain-games",
-        "bin/brain-even",
-        "bin/brain-calc",
-        "bin/brain-gcd",
-        "bin/brain-progression",
-        "bin/brain-prime"
+    "authors": [
+        {
+            "name": "Alexey Goncharenko",
+            "email": "zomorc@gmail.com"
+        }
     ],
     "autoload": {
+        "psr-4": {
+            "BrainGames\\": "src/"
+        },
         "files": [
             "src/Engine.php",
             "src/Cli.php",
@@ -23,18 +25,36 @@
             "src/Games/prime.php"
         ]
     },
-    "authors": [
-        {
-            "name": "Alexey Goncharenko",
-            "email": "zomorc@gmail.com"
+    "autoload-dev": {
+        "psr-4": {
+            "BrainGames\\Tests\\": "tests/"
         }
+    },
+    "bin": [
+        "bin/brain-games",
+        "bin/brain-even",
+        "bin/brain-calc",
+        "bin/brain-gcd",
+        "bin/brain-progression",
+        "bin/brain-prime"
     ],
+    "scripts": {
+        "lint": "phpcs",
+        "analyse": "phpstan analyse",
+        "test": "phpunit",
+        "check": ["@lint", "@analyse", "@test"]
+    },
+    "config": {
+        "sort-packages": true
+    },
     "require": {
-        "php": "^8.0",
+        "php": "^8.3",
+        "ext-mbstring": "*",
         "wp-cli/php-cli-tools": "^v0.13.2"
     },
     "require-dev": {
-        "squizlabs/php_codesniffer": "*",
-        "phpstan/phpstan": "^1.10"
+        "squizlabs/php_codesniffer": "^3.11",
+        "phpstan/phpstan": "^2.2",
+        "phpunit/phpunit": "^12.0"
     }
 }

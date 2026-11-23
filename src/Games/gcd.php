@@ -4,11 +4,9 @@ namespace BrainGames\Gcd;
 
 use function BrainGames\Engine\run;
 
-use const BrainGames\Engine\ROUNDS;
-
 const RULES = "Find the greatest common divisor of given numbers.";
 
-function findGreatestDivisor(int $num1, int $num2)
+function findGreatestDivisor(int $num1, int $num2): int
 {
     $min = min($num1, $num2);
     for ($divisor = $min; $divisor > 0; $divisor -= 1) {
@@ -19,7 +17,7 @@ function findGreatestDivisor(int $num1, int $num2)
     return true;
 }
 
-function runGcd()
+function runGcd(): void
 {
     $gameData = function () {
         $num1 = random_int(1, 100);
