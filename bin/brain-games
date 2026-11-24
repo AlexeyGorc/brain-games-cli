@@ -11,9 +11,6 @@ require __DIR__ . '/bootstrap.php';
 
 $registry = GameRegistry::default();
 
-if ($argc < 2) {
-    echo 'Usage: brain-games <' . implode('|', $registry->ids()) . '>', PHP_EOL;
-    exit(Application::EXIT_USAGE);
-}
+$app = new Application(new ConsoleIo(), GameRegistry::default());
 
-exit((new Application(new ConsoleIo(), $registry))->runGame($argv[1]));
+exit($argc > 1 ? $app->runGame($argv[1]) : $app->runMenu());

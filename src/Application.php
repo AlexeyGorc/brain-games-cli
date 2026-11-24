@@ -52,4 +52,20 @@ final class Application
             return self::EXIT_INTERRUPTED;
         }
     }
+
+    public function runMenu(): int
+    {
+        return $this->guard(function (): int {
+            $name = $this->engine->greet();
+            $menu = new Menu($this->io, $this->registry);
+
+            while (($game = $menu->choose()) !== null) {
+                $this->engine->play($game, $name);
+            }
+
+            $this->io->line("Bye, {$name}!");
+
+            return self::EXIT_OK;
+        });
+    }
 }
