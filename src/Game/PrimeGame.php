@@ -24,7 +24,7 @@ final class PrimeGame implements GameInterface
 
     public function getRules(): string
     {
-        return 'Answer "yes" if given number is prime. Otherwise answer  "no".';
+        return 'Answer "yes" if given number is prime. Otherwise answer "no".';
     }
 
     public function generateRound(): Round
