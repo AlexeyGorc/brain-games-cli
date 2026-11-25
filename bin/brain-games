@@ -9,8 +9,6 @@ use BrainGames\Io\ConsoleIo;
 
 require __DIR__ . '/bootstrap.php';
 
-$registry = GameRegistry::default();
-
 $app = new Application(new ConsoleIo(), GameRegistry::default());
 
 exit($argc > 1 ? $app->runGame($argv[1]) : $app->runMenu());
