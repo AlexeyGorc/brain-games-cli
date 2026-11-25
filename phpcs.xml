@@ -2,6 +2,7 @@
 <ruleset name="brain-games">
     <rule ref="PSR12"/>
     <file>src</file>
+    <file>tests</file>
     <file>bin</file>
     <arg name="colors"/>
     <arg value="sp"/>
