@@ -18,9 +18,10 @@ final class Application
     private readonly Engine $engine;
 
     public function __construct(
-        private readonly IoInterface $io,
+        private readonly IoInterface  $io,
         private readonly GameRegistry $registry,
-    ) {
+    )
+    {
         $this->engine = new Engine($io);
     }
 
@@ -40,19 +41,6 @@ final class Application
         });
     }
 
-    /** @param callable(): int $action */
-    private function guard(callable $action): int
-    {
-        try {
-            return $action();
-        } catch (InputClosedException) {
-            $this->io->line();
-            $this->io->line('Bye!');
-
-            return self::EXIT_INTERRUPTED;
-        }
-    }
-
     public function runMenu(): int
     {
         return $this->guard(function (): int {
@@ -67,5 +55,18 @@ final class Application
 
             return self::EXIT_OK;
         });
+    }
+
+    /** @param callable(): int $action */
+    private function guard(callable $action): int
+    {
+        try {
+            return $action();
+        } catch (InputClosedException) {
+            $this->io->line();
+            $this->io->line('Bye!');
+
+            return self::EXIT_INTERRUPTED;
+        }
     }
 }

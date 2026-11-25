@@ -27,7 +27,7 @@ final class Menu
             foreach ($games as $index => $game) {
                 $this->io->line(sprintf('  %d. %s', $index + 1, $game->getTitle()));
             }
-            $this->io->line(' 0. Exit');
+            $this->io->line('  0. Exit');
 
             $choice = trim($this->io->ask('Your choice'));
 
