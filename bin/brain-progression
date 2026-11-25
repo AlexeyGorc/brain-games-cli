@@ -1,14 +1,12 @@
 #!/usr/bin/env php
 <?php
-$autoloadPath1 = __DIR__ . '/../../../autoload.php';
-$autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
 
-if (file_exists($autoloadPath1)) {
-    require_once $autoloadPath1;
-} else {
-    require_once $autoloadPath2;
-}
+declare(strict_types=1);
 
-use function BrainGames\Progression\runProgression;
+use BrainGames\Application;
+use BrainGames\Game\GameRegistry;
+use BrainGames\Io\ConsoleIo;
 
-runProgression();
+require __DIR__ . '/bootstrap.php';
+
+exit((new Application(new ConsoleIo(), GameRegistry::default()))->runGame('progression'));

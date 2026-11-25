@@ -1,32 +1,60 @@
 <?php
 
-namespace BrainGames\Engine;
+declare(strict_types=1);
 
-use function cli\line;
-use function cli\prompt;
+namespace BrainGames;
 
-const ROUNDS = 3;
+use BrainGames\Game\GameInterface;
+use BrainGames\Io\IoInterface;
 
-function run(string $rule, callable $newRound): void
+final class Engine
 {
-    line("Welcome to the Brain Games!");
-    $name = prompt("May I have your name?");
-    line("Hello, {$name}");
-    line($rule);
+    public const DEFAULT_ROUNDS = 3;
 
-    for ($i = 0; $i < ROUNDS; $i += 1) {
-        [$question, $correctAnswer] = $newRound();
-
-        line("Question: {$question}");
-        $userAnswer = prompt("Your answer");
-
-        if ($userAnswer == $correctAnswer) {
-            line("Correct!");
-        } else {
-            line("'{$userAnswer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'.");
-            line("Let's try again, {$name}!");
-            return;
-        }
+    public function __construct(
+        private readonly IoInterface $io,
+        private readonly int $rounds = self::DEFAULT_ROUNDS,
+    ) {
     }
-    line("Congratulations, {$name}!");
+
+    public function greet(): string
+    {
+        $this->io->line('Welcome to the Brain Games!');
+        $name = trim($this->io->ask('May I have your name?'));
+        $name = $name === '' ? 'stranger' : $name;
+        $this->io->line("Hello, {$name}!");
+
+        return $name;
+    }
+
+    /** @return bool true when every round was answered correctly */
+    public function play(GameInterface $game, string $name): bool
+    {
+        $this->io->line($game->getRules());
+
+        for ($i = 0; $i < $this->rounds; $i++) {
+            $round = $game->generateRound();
+            $this->io->line("Question: {$round->question}");
+            $answer = self::normalize($this->io->ask('Your answer'));
+
+            if ($answer !== $round->correctAnswer) {
+                $this->io->line(
+                    "'{$answer}' is wrong answer ;(. Correct answer was '{$round->correctAnswer}'."
+                );
+                $this->io->line("Let's try again, {$name}!");
+
+                return false;
+            }
+            $this->io->line("Correct!");
+        }
+
+        $this->io->line("Congratulations, {$name}!");
+
+        return true;
+    }
+
+    private static function normalize(string $answer): string
+    {
+        return mb_strtolower(trim($answer));
+    }
 }

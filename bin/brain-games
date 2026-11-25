@@ -1,14 +1,16 @@
 #!/usr/bin/env php
 <?php
-$autoloadPath1 = __DIR__ . '/../../../autoload.php';
-$autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
 
-if (file_exists($autoloadPath1)) {
-    require_once $autoloadPath1;
-} else {
-    require_once $autoloadPath2;
-}
+declare(strict_types=1);
 
-use function BrainGames\Cli\getName;
+use BrainGames\Application;
+use BrainGames\Game\GameRegistry;
+use BrainGames\Io\ConsoleIo;
 
-getName();
+require __DIR__ . '/bootstrap.php';
+
+$registry = GameRegistry::default();
+
+$app = new Application(new ConsoleIo(), GameRegistry::default());
+
+exit($argc > 1 ? $app->runGame($argv[1]) : $app->runMenu());
