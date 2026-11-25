@@ -18,10 +18,9 @@ final class Application
     private readonly Engine $engine;
 
     public function __construct(
-        private readonly IoInterface  $io,
+        private readonly IoInterface $io,
         private readonly GameRegistry $registry,
-    )
-    {
+    ) {
         $this->engine = new Engine($io);
     }
 

@@ -1,3 +1,5 @@
+.PHONY: install brain-games brain-even brain-calc brain-gcd brain-progression brain-prime validate lint lint-fix analyse test test-coverage check
+
 install:
 	composer install
 
@@ -20,7 +22,21 @@ brain-prime:
 	./bin/brain-prime
 
 validate:
-	composer validate
+	composer validate --strict
 
 lint:
-	composer exec --verbose phpcs -- --standard=PSR12 src bin
+	composer exec -- phpcs
+
+lint-fix:
+	composer exec -- phpcbf
+
+analyse:
+	composer exec -- phpstan analyse
+
+test:
+	composer exec -- phpunit
+
+test-coverage:
+	XDEBUG_MODE=coverage composer exec -- phpunit --coverage-text
+
+check: validate lint analyse test

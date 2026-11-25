@@ -2,4 +2,3 @@
 /.phpunit.cache/
 .idea/
 .DS_Store
-.phpunit.result.cache
